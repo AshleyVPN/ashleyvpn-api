@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: python main.py
+    ports: 
+      - 5000:5000
+    restart: always
+    env_file:
+      - .env
+    depends_on: 
+      - db
+    volumes:
+      - ./:/home/ashley/
+  db:
+    image: postgres:12
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .env
+    ports:
+      - 5432:5432
+  redis: 
+    image: redis:latest
+    env_file:
+      - .env
+    ports:
+      - 6379:6379
+    command: /bin/sh -c "redis-server --bind redis --port 6379 --requirepass $$REDIS_HOST_PASSWORD"
+
+volumes:
+  postgres_data:
