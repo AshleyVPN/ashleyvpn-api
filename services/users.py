@@ -1,8 +1,6 @@
-from models.users import User, UserRole
+from models.users import User
 
 from typing import Tuple, Optional, Annotated
-
-from models.users import UserRole
 
 from sqlalchemy import select
 from sqlalchemy.exc import NoResultFound

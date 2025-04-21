@@ -1,10 +1,12 @@
 import redis.asyncio as redis
 from sqlalchemy.ext.asyncio import AsyncSession
+from fastapi import Depends, HTTPException
+from fastapi import status
 
 from redis_events import RedisEventEmiter
 from config import RedisConfig, RedisEventsConfig
-
 from database import async_session
+from models.users import User
 
 
 redis_client = redis.Redis(

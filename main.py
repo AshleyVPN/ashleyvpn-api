@@ -20,10 +20,10 @@ def init_app():
 app = init_app()
 
 
-@app.on_event("startup")
-async def startup_event():
-    asyncio.create_task(emiter.reader())
+# @app.on_event("startup")
+# async def startup_event():
+#     asyncio.create_task(emiter.reader())
 
 
 if __name__ == '__main__':
-    uvicorn.run("main:app", port=FastAPIConfig.PORT, host=FastAPIConfig.HOST, reload=True)
+    uvicorn.run("main:app", port=int(FastAPIConfig.PORT), host=FastAPIConfig.HOST, reload=True)

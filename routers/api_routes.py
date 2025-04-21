@@ -1,11 +1,17 @@
 from fastapi import APIRouter
 
-from .api_v1 import test, chats
+from .api_v1 import  users, subscription_plans, subscriptions, payments, auth, registration, yookassa_payments, webhooks
 
 routes = {
     'api_v1' : [
-        test.router,
-        chats.router,
+        users.router,
+        subscription_plans.router,
+        subscriptions.router,
+        payments.router,
+        auth.router,
+        registration.router,
+        yookassa_payments.router,
+        webhooks.router,
     ]
 }
 

@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     command: python main.py
     ports: 
-      - 5000:5000
+      - 5080:5080
     restart: always
     env_file:
       - .env
